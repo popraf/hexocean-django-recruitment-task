@@ -15,6 +15,6 @@ This solution comes with pre-defined `.env` variables and without NGINX, therefo
 - admin/ - Manage thumbnail heights, user tiers, and accounts.
 - images/upload/ - Upload image
 - images/view/ - View image (if accessible)
-- thumbnails/view/<int:height>/ - View thumbnails in requested height if user account tier has access to
+- thumbnails/view/`<int:height>`/ - View thumbnails in requested height if user account tier has access to
 - expiring_link/new/ - Generate expiring link for uploaded image or thumbnail
-- expiring_link/<str:linkUUID>/ - View uploaded image or thumbnail by generated UUID
+- expiring_link/`<str:linkUUID>`/ - View uploaded image or thumbnail by generated UUID
