@@ -1,0 +1,40 @@
+[
+    {
+      "model": "auth_app.usertier",
+      "pk": 1,
+      "fields": {
+        "name": "Basic",
+        "accessOriginalFile": false,
+        "accessGenerateExpiringLinks": false,
+        "thumbnailHeight": [
+          1
+        ]
+      }
+    },
+    {
+      "model": "auth_app.usertier",
+      "pk": 2,
+      "fields": {
+        "name": "Premium",
+        "accessOriginalFile": true,
+        "accessGenerateExpiringLinks": false,
+        "thumbnailHeight": [
+          1,
+          2
+        ]
+      }
+    },
+    {
+      "model": "auth_app.usertier",
+      "pk": 3,
+      "fields": {
+        "name": "Enterprise",
+        "accessOriginalFile": true,
+        "accessGenerateExpiringLinks": true,
+        "thumbnailHeight": [
+          1,
+          2
+        ]
+      }
+    }
+  ]

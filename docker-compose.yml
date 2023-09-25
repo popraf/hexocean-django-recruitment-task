@@ -1,0 +1,50 @@
+version: '2'
+
+services:
+    server:
+        restart: unless-stopped
+        build:
+            context: .
+            dockerfile: ./docker/backend/Dockerfile
+        entrypoint: /app/docker/backend/server-entrypoint.sh
+        volumes:
+            - static_volume:/app/backend/django_static
+        ports:
+            - 8000:8000    
+        environment:
+            DEBUG: "True"
+            DJANGO_SECRET: ${DJANGO_SECRET}
+            DJANGO_CELERY_BROKER: ${DJANGO_CELERY_BROKER}
+            DJANGO_CELERY_RESULT_BACKEND: ${DJANGO_CELERY_RESULT_BACKEND}
+            DJANGO_DB: postgresql
+            DJANGO_POSTGRES_HOST: db
+            DJANGO_POSTGRES_NAME: ${DJANGO_POSTGRES_NAME}
+            DJANGO_POSTGRES_USER: ${DJANGO_POSTGRES_USER}
+            DJANGO_POSTGRES_PASSWORD: ${DJANGO_POSTGRES_PASSWORD}
+            DJANGO_POSTGRES_PORT: ${DJANGO_POSTGRES_PORT}
+            DJANGO_REDIS_CACHE_LOC: ${DJANGO_REDIS_CACHE_LOC}
+            DJANGO_REDIS_PORT: ${DJANGO_REDIS_PORT}
+            DJANGO_REDIS_CACHE_KEY_PREFIX: ${DJANGO_REDIS_CACHE_KEY_PREFIX}
+        depends_on:
+            - db
+            - redis
+    redis:
+        restart: unless-stopped
+        image: redis:7.0.5-alpine 
+        expose:
+            - 6379
+    db:
+        image: postgres:13.0-alpine
+        restart: unless-stopped
+        volumes:
+            - postgres_data:/var/lib/postgresql/data/
+        environment:
+            POSTGRES_DB: postgres
+            POSTGRES_USER: ${DJANGO_POSTGRES_NAME}
+            POSTGRES_PASSWORD: ${DJANGO_POSTGRES_PASSWORD}
+        expose:
+            - 5432
+    
+volumes:
+    static_volume: {}
+    postgres_data: {}

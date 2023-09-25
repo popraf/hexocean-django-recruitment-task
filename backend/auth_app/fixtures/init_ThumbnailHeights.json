@@ -1,0 +1,12 @@
+[
+    {
+        "model": "auth_app.thumbnailheight",
+        "pk": 1,
+        "fields": {"available_height": 200}
+    }, 
+    {
+        "model": "auth_app.thumbnailheight",
+        "pk": 2,
+        "fields": {"available_height": 400}
+    }
+]
