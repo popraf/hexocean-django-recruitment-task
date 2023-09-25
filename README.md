@@ -10,6 +10,11 @@ This solution comes with pre-defined `.env` variables and without NGINX, therefo
 - Asynchronous images processing to thumbnails using Celery and Redis
 - Easy user accounts tier and thumbnails height management using admin panel
 - This project comes with fixtures, initial data is loaded once image is built (but w/o images, thumbnails)
+  - Available users in initial data (login/password):
+    - SU: test_user/test_user_password
+    - Basic: test_user_basic/test_user_password
+    - Premium: test_user_premium/test_user_password
+    - Enterprise: test_user_enterprise/test_user_password
 
 #### Endpoints
 - admin/ - Manage thumbnail heights, user tiers, and accounts.
