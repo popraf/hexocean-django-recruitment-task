@@ -1,6 +1,6 @@
 # hexocean-django-recruitment
 
-API that allows any user to upload an image in PNG or JPG format written using Django REST, Celery, Redis, Postgres.
+API that allows any user to upload an image in PNG or JPG format followed by processing to thumbnail. Solution uses Django REST, Celery, Redis, Postgres.
 
 #### Running the project
 Git clone the repository, then use `docker-compose up`. Once docker builds the images, API is served on local machine via `http://localhost:8000/`.
