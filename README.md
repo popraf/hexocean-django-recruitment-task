@@ -4,13 +4,14 @@ API that allows any user to upload an image in PNG or JPG format followed by pro
 
 #### Running the project
 Git clone the repository, then use `docker-compose up`. Once docker builds the images, API is served on local machine via `http://localhost:8000/`.
-This solution comes with pre-defined `.env` variables and without NGINX, therefore it is a development build.
+
+This solution comes with pre-defined `.env` variables and Celery on the same container as Django, without NGINX and S3, therefore it is a development build.
 
 #### Features
 - Asynchronous images processing to thumbnails using Celery and Redis
 - Easy user accounts tier and thumbnails height management using admin panel
 - This project comes with fixtures, initial data is loaded once image is built (but w/o images, thumbnails)
-  - Available users in initial data (login/password):
+  - Available users in initial data (account tier: login/password):
     - SU: test_user/test_user_password
     - Basic: test_user_basic/test_user_password
     - Premium: test_user_premium/test_user_password
